@@ -4,5 +4,3 @@ export default (req,res)=>{
         success:true,
         message:'User'
     })
-    
-}
