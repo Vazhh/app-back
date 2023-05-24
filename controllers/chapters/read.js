@@ -5,4 +5,3 @@ export default (req,res)=>{
         message:'User'
     })
     
-}
