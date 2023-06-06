@@ -1,5 +1,4 @@
 import express from "express";
-
 import "dotenv/config.js"
 import './config/database.js'
 import indexRouter from "./router/index.js";
