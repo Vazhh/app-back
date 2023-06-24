@@ -1,6 +1,6 @@
 import Manga from '../../models/Manga.js'
 
-export default async(req,res)=>{
+export default async(req,res,next)=>{
     try {
         let all = await Manga.find()
         if(all){
@@ -15,9 +15,6 @@ export default async(req,res)=>{
             })
         }
     } catch (error) {
-        return res.status(500).json({
-            response: null,
-            message: 'error'
-        })
+        next(error)
     }
 }

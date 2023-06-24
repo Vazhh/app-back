@@ -1,5 +1,5 @@
 import Manga from '../../models/Manga.js'
-export default async(req,res)=>{
+export default async(req,res,next)=>{
     try {
         let one = await Manga.create(req.body)// el objeto data deberia contener TODOS los datos necesarios para crear algo
             return res.status(200).json({
@@ -9,10 +9,6 @@ export default async(req,res)=>{
             })
         
     } catch (error) {
-        return res.status(500).json({
-            success: false,
-            response: null,
-            message: 'not created'
-        })
+        next(error)
     }
 }
