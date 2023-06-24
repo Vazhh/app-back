@@ -1,5 +1,5 @@
 import Author from '../../models/Author.js'
-export default async(req,res)=>{
+export default async(req,res,next)=>{
     try {
         let one = await Author.create(req.body)// el objeto data deberia contener TODOS los datos necesarios para crear algo
        
@@ -10,10 +10,6 @@ export default async(req,res)=>{
             })
         
     } catch (error) {
-        return res.status(500).json({
-            success: false,
-            response: null,
-            message: 'not created'
-        })
+        next(error)
     }
 }
