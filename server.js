@@ -27,4 +27,4 @@ server.use(error_handler)
 
 server.listen(PORT, ready)// iniciar servidor
 
-console.log(process.env)
+//console.log(process.env)

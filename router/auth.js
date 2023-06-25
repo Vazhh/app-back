@@ -1,9 +1,19 @@
-import { Router } from 'express'
-import read from '../controllers/users/read.js'
+//controllers
+import register from "../controllers/auth/register.js"
+import read from "../controllers/auth/read.js"
 
-let usersRouter = Router()
+//middlewares
+import validator from "../middlewares/validator.js"
+import accountExistsSignUp from "../middlewares/accountExistsSignUp.js"
 
+//schemas
+import register_schema from "../schemas/auth/register.js"
 
-usersRouter.get('/',read)
+//router
+import { Router } from "express"
+let authRouter = Router()
 
-export default usersRouter
+authRouter.post('/register', validator(register_schema), accountExistsSignUp, register)
+authRouter.get('/', read)
+
+export default authRouter
