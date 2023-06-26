@@ -1,6 +1,7 @@
 //controllers
 import register from "../controllers/auth/register.js"
 import signin from "../controllers/auth/signin.js"
+import signout from "../controllers/auth/signout.js"
 import read from "../controllers/auth/read.js"
 
 //middlewares
@@ -19,6 +20,7 @@ let authRouter = Router()
 
 authRouter.post('/register', validator(register_schema), accountExistsSignUp, register)
 authRouter.post('/signin', validator(signin_schema), accountExistsSignIn, isValidPassword, signin)
+authRouter.post('/signout', accountExistsSignIn, signout)
 authRouter.get('/', read)
 
 export default authRouter
