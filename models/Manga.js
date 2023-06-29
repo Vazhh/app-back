@@ -15,5 +15,4 @@ let schema = new Schema({
 })
 
 let Manga = model(collection,schema)
-
 export default Manga
