@@ -11,7 +11,6 @@ export default passport.use(
         async (jwt_payload,done) => {  //done es un NEXT mas avanzado, porque me permite configurar el error en el primer parametro y los datos a continuar en el segundo parametro y me permite continuar como NEXT
             try {				
                 let user = await User.findOne({_id:jwt_payload._id})
-                delete user._id // elimino los datos sensibles
                 delete user.password
                 if (user) {		 //si encuentro el usuario a autenticar
                     return done(null, user)  // dejo pasar con error=null y los datos del usuario autenticado
