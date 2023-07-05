@@ -26,7 +26,5 @@ server.use(not_found_handler)
 server.use(error_handler)
 server.listen(PORT, ready)// iniciar servidor
 //console.log(process.env)
-endpoint
 console.log(process.env)
 
-main
