@@ -1,4 +1,4 @@
-import Author from '../models/Authors.js'
+import Author from '../models/Author.js'
 import Company from '../models/Company.js'
 
 

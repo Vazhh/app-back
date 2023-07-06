@@ -12,7 +12,7 @@ export default async (req, res, next) => {
         return res.status(400).json({
           success: false,
           response: null,
-          message: "not allow",
+          message: "Order already exists",
         });
       } 
   } catch (error) {
