@@ -7,13 +7,13 @@ const schema = new Schema({
     city:{type:String,required:true},
     country:{type:String,required:true},
     date:{type:Date},
-    photo:{type:String,required:true},
+    photo:{type:String,required:false},
     user_id:{
         type:Types.ObjectId, // es un tipo de dato especial de mongo que es un string con propiedades extensivas de objeto
         ref:'users',
         required:true
     },
-    active:{ type:Boolean,required:true}
+    active:{ type:Boolean,required:false}
 },{
     timestamps: true
 })
