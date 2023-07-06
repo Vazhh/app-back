@@ -19,7 +19,6 @@ server.use(cors()) //para permitir origenes cruzados (front/back)
 server.use(morgan('dev')) //para registrar peticiones HTTP
 // server.use(time)
 
-
 //router + server
 server.use('/api',indexRouter)
 server.use(not_found_handler)
