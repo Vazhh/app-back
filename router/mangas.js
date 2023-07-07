@@ -13,7 +13,7 @@ mangasRouter.post('/',
     passport.authenticate('jwt',{session:false}),
     validator(MangaSchema),
     has_permition,
-    // isActive,
+    isActive,
     create)
 mangasRouter.get('/',read)
 

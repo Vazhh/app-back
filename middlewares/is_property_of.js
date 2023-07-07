@@ -17,7 +17,7 @@ export default async (req, res, next) => {
     return res.status(400).json({
       success: false,
       response: null,
-      message: "not allow"
+      messages: ["not allow"]
     });
   } catch (error) {
     return next(error);
