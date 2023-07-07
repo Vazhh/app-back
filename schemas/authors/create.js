@@ -2,24 +2,36 @@ import joi from "joi-oid";
 
 const schema = joi.object({ //validar si es un objeto
     name: joi.string().min(2).max(20).messages({
-        'string':'Tiene que ser texto, sin caracteres especiales como chinos XD',
-        'string.min':'Tiene que tener al menos 2 caracteres',
-        'string.max':'Tiene que tener menos de 20 caracteres',
+        'string':'It has to be text, no special characters',
+        'string.min':'It has to have at least 2 characters',
+        'string.max':'It has to be less than 20 characters',
     }),
     last_name:joi.string().min(2).max(20).messages({
-        'string':'Tiene que ser texto, sin caracteres especiales como chinos XD',
-        'string.min':'Tiene que tener al menos 2 caracteres',
-        'string.max':'Tiene que tener menos de 20 caracteres',
+        'string':'It has to be text, no special characters',
+        'string.min':'It has to have at least 2 characters',
+        'string.max':'It has to be less than 20 characters',
     }),
-    city:joi.string(),
-    country:joi.string().required().messages({'string':'Debe agregar  pais'}),
-    date:joi.date().messages({
+    city:joi.string().required().messages({
+        'required':'city is required',
+        'string':'It has to be text, no special characters',
+        'string.empty':'you need to add a city',
+    }),
+    country:joi.string().required().messages({
+        'string':'You must add country after the symbol "," ',
+        'string':'It has to be text, no special characters',
+        'string.empty':'you need to add a country',
+    }),
+    date:joi.date().max('now').messages({
         'date':'Debe introducir numeros separados por "-" ',
-        'required':'Es requerido agregar un país'
-        
+        'date.max':'date must not exceed current date'
+    
+    }),
+    photo:joi.string().uri().required().messages({
+        'uri':'you must add a url',
+        'required':'photo is required',
 
     }),
-    photo:joi.string().uri(),
+
     user_id: joi.objectId(),
     
 }) 
