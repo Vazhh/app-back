@@ -12,9 +12,10 @@ const schema = joi.object({ //validar si es un objeto
         'string.max':'Tiene que tener menos de 20 caracteres',
     }),
     city:joi.string(),
-    country:joi.string().messages({'string':'Debe agregar  pais'}),
+    country:joi.string().required().messages({'string':'Debe agregar  pais'}),
     date:joi.date().messages({
         'date':'Debe introducir numeros separados por "-" ',
+        'required':'Es requerido agregar un país'
         
 
     }),
