@@ -6,6 +6,6 @@ export default async (req, res, next) => {
   return res.status(400).json({
     success: false,
     response: null,
-    message: "Author or Company not active",
+    messages: ["Author or Company not active"],
   });
 };
