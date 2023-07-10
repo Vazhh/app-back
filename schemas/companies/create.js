@@ -7,9 +7,7 @@ const schema = joi.object({ //validar si es un objeto
     }),
     logo:joi.string(),
     website:joi.string(),
-    description:joi.string(),
-    active: joi.boolean(),
-    user_id: joi.objectId()
+    description:joi.string()
 }) 
 
 export default schema
