@@ -32,7 +32,8 @@ const schema = joi.object({
         .required()
         .messages({
             'any.required':'Cover photo is required',
-            'string.uri':'Cover photo must be a url element'
+            'string.uri':'Cover photo must be a url element',
+            'string.min':'Cover must have at least 10 character'
         }),
     
 })
