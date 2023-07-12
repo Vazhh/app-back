@@ -9,6 +9,8 @@ export default async (req, res, next) => {
     const prevChapter = await Chapter.findOne({ _id: { $lt: id } });
     return res.status(200).json({
       success: true,
+      prev: prevChapter ? prevChapter._id : null,
+      next: nextChapter ? nextChapter._id : null,
       response: one,
       prev: prevChapter ? prevChapter._id : null,
       next: nextChapter ? nextChapter._id : null,
