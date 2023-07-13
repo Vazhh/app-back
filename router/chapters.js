@@ -14,7 +14,7 @@ import read_one from '../controllers/chapters/read_one.js'
 
 let chaptersRouter = Router()
 
-chaptersRouter.get('/',read)
+chaptersRouter.get('/', passport.authenticate('jwt',{session:false}), read)
 chaptersRouter.post('/',
     passport.authenticate('jwt',{ session:false }),
     has_permition,
