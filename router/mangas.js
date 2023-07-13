@@ -17,4 +17,6 @@ mangasRouter.post('/',
     create)
 mangasRouter.get('/',read)
 
+mangasRouter.get('/:id', get.passport('jwt') )
+
 export default mangasRouter
