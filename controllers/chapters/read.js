@@ -3,7 +3,7 @@ export default async (req, res, next) => {
     try {
         let consultas = {};
         let pagination = { page: 1, limit: 6 }
-        let order= {order:1}
+        
 
         if (req.query.manga_id) {
             consultas.manga_id = req.query.manga_id.split(',');
@@ -11,14 +11,12 @@ export default async (req, res, next) => {
         if (req.query.page) {
             pagination.page = req.query.page;
         }
-        if (req.query.sort) {
-            order.title=req.query.sort;
-        }
+       
 
         let skip = pagination.page > 0 ? (pagination.page - 1) * pagination.limit : 0;
         let limit = pagination.limit > 0 ? pagination.limit : 0;
         
-        let all = await Chapter.find(consultas, 'manga_id  title cover_photo pages -_id').populate('manga_id', 'title').skip(skip).limit(limit).sort( order );
+        let all = await Chapter.find(consultas, 'manga_id  title cover_photo pages -_id').populate('manga_id', 'title').skip(skip).limit(limit).sort( {order: 1});
         
         if (all.length > 0) {
             let total = await Chapter.countDocuments(consultas);
