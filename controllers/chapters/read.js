@@ -16,7 +16,7 @@ export default async (req, res, next) => {
         let skip = pagination.page > 0 ? (pagination.page - 1) * pagination.limit : 0;
         let limit = pagination.limit > 0 ? pagination.limit : 0;
         
-        let all = await Chapter.find(consultas, 'manga_id  title cover_photo pages -_id').populate('manga_id', 'title').skip(skip).limit(limit).sort( {order: 1});
+        let all = await Chapter.find(consultas, 'manga_id  title cover_photo pages _id').populate('manga_id', 'title').skip(skip).limit(limit).sort( {order: 1});
         
         if (all.length > 0) {
             let total = await Chapter.countDocuments(consultas);
