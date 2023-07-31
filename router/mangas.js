@@ -7,6 +7,7 @@ import passport from 'passport'
 import has_permition from '../middlewares/has_permition.js'
 import isActive from '../middlewares/isActive.js' 
 import read_one from '../controllers/mangas/read_one.js'
+import read_news from '../controllers/mangas/read_news.js'
 
 let mangasRouter = Router()
 
@@ -17,7 +18,7 @@ mangasRouter.post('/',
     isActive,
     create)
 mangasRouter.get('/',read)
-
+mangasRouter.get('/news',passport.authenticate('jwt',{session:false}),has_permition,read_news)
 mangasRouter.get('/:id',passport.authenticate('jwt',{session:false}), read_one)
 
 export default mangasRouter
