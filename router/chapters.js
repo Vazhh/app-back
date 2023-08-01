@@ -17,13 +17,13 @@ let chaptersRouter = Router()
 chaptersRouter.get('/', passport.authenticate('jwt',{session:false}), read)
 chaptersRouter.post('/',
     passport.authenticate('jwt',{ session:false }),
+    validator(create_schema),
     has_permition,
     isactive,
     is_property_of,
-    validator(create_schema),
-    exists_order,
-    next_order,
     add_cover_photo,
+    exists_order,
+    next_order,   
 create)
 chaptersRouter.get('/:id',passport.authenticate('jwt',{ session:false }),read_one)
 
