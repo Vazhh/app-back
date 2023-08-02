@@ -1,25 +1,21 @@
-import Manga from "../models/Manga.js";
+import Manga from "../models/Manga.js"
 
-export default async (req, res, next) => {
-  try {
-    const { manga_id } = req.body;
-    const manga = await Manga.findOne({
-      _id: manga_id,
-    });
-    const author_id = manga.author_id;
-    if (author_id === req.author._id) {
-      return next();
+export default async(req,res,next)=> {
+    if (req.author) {
+        let one = await Manga.findOne({ _id:req.body.manga_id,author_id:req.author._id })
+        if (one) {
+            return next()
+        }
     }
-    const company_id = manga.company_id;
-    if (company_id === req.company._id) {
-      return next();
+    if (req.company) {
+        let one = await Manga.findOne({ _id:req.body.manga_id,company_id:req.company._id })
+        if (one) {
+            return next()
+        }
     }
-    return res.status(400).json({
-      success: false,
-      response: null,
-      messages: ["not allow"]
-    });
-  } catch (error) {
-    return next(error);
-  }
-};
+    return res.status(403).status({
+        success:false,
+        response:null,
+        messages:['not allow']
+    })
+}
