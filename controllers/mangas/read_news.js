@@ -88,7 +88,7 @@ export default async(req,res,next)=> {
             return res.status(200).json({
                 success: true,
                 response: {
-                    logo: '/public/VistaWeb/logo.svg'
+                    logo:  '/assets/Logo.png'
                 }
             })
         } else if (count<8) {
