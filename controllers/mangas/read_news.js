@@ -88,7 +88,7 @@ export default async(req,res,next)=> {
             return res.status(200).json({
                 success: true,
                 response: {
-                    logo:  '/assets/Logo.png'
+                    logo:  '/public/logo.png'
                 }
             })
         } else if (count<8) {
