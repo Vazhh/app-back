@@ -20,7 +20,7 @@ export default async (req, res, next) => {
       consultas,
       "title cover_photo category_id description"
     )
-      .populate("category_id", "name")
+      .populate("category_id", "name color hover")
       .skip(skip)
       .limit(limit)
       .sort({ title: 1 });
